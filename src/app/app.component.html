@@ -1,10 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div [ngStyle]="{'background': config.fondo}">
+<div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <p>{{descripcion}}</p>
+  <button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">ocultarVideojuegos</button>
+  <button (click)="ocultarVideojuegos(true)" *ngIf="!mostrar_videojuegos">mostrarVideojuegos</button>
 </div>
-<app-zapatillas></app-zapatillas>
 
+<!--<app-videojuego-selector *ngIf="mostrar_videojuegos"></app-videojuego-selector>
+<app-zapatillas></app-zapatillas>
+<app-cursos></app-cursos>-->
+<router-outlet></router-outlet>
 

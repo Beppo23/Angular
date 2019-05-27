@@ -1,27 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { Zapatilla } from '../models/zapatilla';
+import { Zapatilla } from '../module/zapatilla';
 
 @Component({
-  selector: 'app-zapatillas',
-  templateUrl: './zapatillas.component.html',
-  styleUrls: ['./zapatillas.component.css']
+    selector: 'app-zapatillas',
+    templateUrl: './zapatillas.component.html'
 })
-export class ZapatillasComponent implements OnInit {
 
-  public titulo: string;
-  public zapatillas: Array<Zapatilla>;
-  constructor() {
-    this.titulo = 'Componente de zapatillas';
-    this.zapatillas = [
-      new Zapatilla('Reebok', 80, 'Reebok', 'negro', true),
-      new Zapatilla('Reebok1', 80, 'Reebok', 'blanco', true),
-      new Zapatilla('Reebok2', 80, 'Reebok', 'rojo', true),
-      new Zapatilla('Reebok3', 80, 'Reebok', 'verde', false)
-    ];
-  }
+export class ZapatillasComponent implements OnInit{
+    public titulo: string;
+    public zapatillas: Array<Zapatilla>;
+    public marcas: String[];
+    public miMarca: string;
+    public color: string;
+    constructor() {
+        this.color = 'yellow';
+        this.marcas = new Array();
+        this.titulo = "Componente de zapatillas";
+        this.zapatillas = [
+            new Zapatilla('Reebok', 80),
+            new Zapatilla('Nike', 120),
+            new Zapatilla('Nike palahuert', 40),
+            new Zapatilla('Nike', 120)
+        ];
+    }
 
-  ngOnInit() {
-    console.log(this.zapatillas);
-  }
+    ngOnInit(): void {
+        console.log(this.marcas);
 
+        this.getMarcas();
+    }
+
+    getMarcas(){
+        this.zapatillas.forEach((zapatilla, index) => {
+            if(this.marcas.indexOf(zapatilla.nombre) < 0) {
+            this.marcas.push(zapatilla.nombre);
+            }
+        });
+        console.log(this.marcas);
+    }
+
+    addMarca() {
+        let zapa = new Zapatilla(this.miMarca, 90);
+        this.zapatillas.push(zapa);
+    }
 }
