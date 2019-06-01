@@ -8,13 +8,15 @@ import { VideojuegoComponent } from './videojuego/videojuego.component';
 import { ZapatillasComponent } from './zapatillas/zapatillas.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { from, fromEventPattern } from 'rxjs';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideojuegoComponent,
     ZapatillasComponent,
-    CursosComponent
+    CursosComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
