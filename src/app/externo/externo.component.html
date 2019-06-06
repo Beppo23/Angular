@@ -1,4 +1,6 @@
 <p>{{fecha | date:'dd-MM-yyyy'}}</p>
+<p>{{ 4 | calculadora: 3}}</p>
+
 <hr/>
 <input type="text" [(ngModel)]="userId" (keyup.enter)="cargaUsuario()"/>
 <div *ngIf="!user">
